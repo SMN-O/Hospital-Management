@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Simon%20Yates/Documents/NetBeansProjects/HospitalSystem/src/RegistrationFormApplication.java</file>
-            <file>file:/C:/Users/Simon%20Yates/Documents/NetBeansProjects/HospitalSystem/src/hospitalsystem/HospitalSystem.java</file>
-            <file>file:/C:/Users/Simon%20Yates/Documents/NetBeansProjects/HospitalSystem/src/GUIReg.java</file>
+            <file>file:/C:/Users/Simon%20Yates/Documents/NetBeansProjects/HospitalSystem/src/Main.java</file>
+            <file>file:/C:/Users/Simon%20Yates/Documents/NetBeansProjects/HospitalSystem/src/ShowPatients.java</file>
+            <file>file:/C:/Users/Simon%20Yates/Documents/NetBeansProjects/HospitalSystem/src/FileWriting.java</file>
+            <file>file:/C:/Users/Simon%20Yates/Documents/NetBeansProjects/HospitalSystem/src/MainMenu.java</file>
         </group>
     </open-files>
 </project-private>
