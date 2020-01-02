@@ -1,0 +1,3 @@
+ID, First Name, Surname, House Number, Street Name, PostCode, PhoneNumber
+1 / Simon / Yates / 5 / Plymouth Street / Pl4 8PP / 0123456789
+2 / Josh / Thomas/ 10 / Lane Street / P24 5hP / 0111111
