@@ -9,5 +9,8 @@
  * @author Simon Yates
  */
 public class Main {
+    public static void main(String[] args) {
+        FileWriting fw = new FileWriting();
+    }
     
 }
