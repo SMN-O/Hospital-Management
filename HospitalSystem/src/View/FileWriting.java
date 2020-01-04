@@ -101,22 +101,24 @@ public class FileWriting implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
         String uniqueID = UUID.randomUUID().toString();
+        
         if(ae.getActionCommand()==signUpButton.getActionCommand())
         {
             try
             {
                 String userID = accountTextField.getText() + uniqueID;
-                fileWriter  = new FileWriter("Accounts.txt");
+                fileWriter  = new FileWriter("Accounts.txt",true);
+                
+                fileWriter.write(accountTextField.getText() + uniqueID  + " : ");
                 fileWriter.write(userNameTextField.getText() + " : ");
                 fileWriter.write(surnameTextField.getText() + " : ");
-
                 fileWriter.write(passwordTextField.getText() + " : ");
                 fileWriter.write(emailTextField.getText() + " : ");
                 fileWriter.write(addressTextField.getText() + " : ");
                 fileWriter.write(postcodeTextField.getText() + " : ");
                 fileWriter.write(phoneTextField.getText() + " : ");
                 fileWriter.write(genderTextField.getText() + " : ");
-                fileWriter.write(accountTextField.getText() + uniqueID  + " : ");
+                fileWriter.write("\n");
                 
                 fileWriter.close();
                 JOptionPane.showMessageDialog(null, "Account Created" + "\n" + "Your ID" + "\n" + userID + "\n" + "Your Email" + "\n" + emailTextField.getText()

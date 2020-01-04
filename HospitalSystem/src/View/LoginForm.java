@@ -6,18 +6,23 @@
 package View;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
  * @author Simon Yates
  */
 public class LoginForm extends javax.swing.JFrame {
+
+  
 
     /**
      * Creates new form LoginForm
@@ -61,6 +66,12 @@ public class LoginForm extends javax.swing.JFrame {
         idTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idTextFieldActionPerformed(evt);
+            }
+        });
+
+        emailTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailTextFieldActionPerformed(evt);
             }
         });
 
@@ -132,47 +143,48 @@ public class LoginForm extends javax.swing.JFrame {
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
         // TODO add your handling code here:
         
-        String id = idTextField.getText();
-        String email = emailTextField.getText();
-        String password = passwordTextField.getText();
-                    
-        FileReader fr = null;
-        try {
-            fr = new FileReader("Accounts.txt");
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            BufferedReader br = new BufferedReader(fr);
-            String line, userID = null, user, pass;
-            boolean isLoginSuccess = false;
-        try {
-            while ((line = br.readLine()) != null) {
-                id = line.split(" ")[1].toLowerCase();
-                user = line.split(" ")[2].toLowerCase();
-                pass = line.split(" ")[3].toLowerCase();
-                if (userID.equals(id) && user.equals(email) && pass.equals(password)) {
-                    isLoginSuccess = true;
-                    this.dispose();
-                    
-                    MainMenu mm = new MainMenu();
-                    mm.setLocationRelativeTo(null);
-                    mm.setVisible(true);
-                    break;
-                } 
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
+        File inputFile = new File("Accounts.txt");
+     
+     String userIDInput = idTextField.getText();
+     String userNameInput = emailTextField.getText();
+     String passwordInput = passwordTextField.getText();
+     
+     try {
+            Scanner in = new Scanner(new File("USERDATA.txt"));
+            while (in.hasNextLine())
+            {
+              String s = in.nextLine();  
+              String[] sArray = s.split(" : ");
+              
+              System.out.println(sArray[0]); //Just to verify that file is being read
+              System.out.println(sArray[1]);
 
-        }
-            if (!isLoginSuccess) {
-                JOptionPane.showMessageDialog(null, "ID/USERNAME/PASSWORD WRONG", "WARNING!!", JOptionPane.WARNING_MESSAGE);
+              
+              if (userIDInput == sArray[0] && userNameInput == sArray[1] && passwordInput == sArray[2])
+              {
+                JOptionPane.showMessageDialog(null,
+                    "Login Successful", "Success",
+                    JOptionPane.INFORMATION_MESSAGE);
+              }
+              else
+              {
+                JOptionPane.showMessageDialog(null,
+                    "Invalid Username / Password Combo", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+              }
             }
-        try {
-            fr.close();
-        } catch (IOException ex) {
-            Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
-
+            
+            in.close();
+            
+        } catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(null,
+                    "User Database Not Found", "Error",
+                    JOptionPane.ERROR_MESSAGE);
         }
+
+            
+
+        
 
             
         
@@ -181,6 +193,10 @@ public class LoginForm extends javax.swing.JFrame {
     private void idTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_idTextFieldActionPerformed
+
+    private void emailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
