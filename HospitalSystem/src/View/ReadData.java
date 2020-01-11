@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import Controller.Patient;
 /**
  *
  * @author Simon Yates
@@ -86,7 +87,7 @@ public class ReadData extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String filePath = "Accounts.txt";
+        String filePath = "bye.txt";
         File file = new File(filePath);
 
         try {
@@ -101,7 +102,7 @@ public class ReadData extends javax.swing.JFrame {
 
             for (Object tableLine : tableLines) {
                 String line = tableLine.toString().trim();
-                String[] dataRow = line.split(":");
+                String[] dataRow = line.split(",");
                 model.addRow(dataRow);
             }
 

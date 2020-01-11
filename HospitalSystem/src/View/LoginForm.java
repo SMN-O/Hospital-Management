@@ -7,22 +7,21 @@ package View;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import Controller.patient;
+import java.io.FileNotFoundException;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-
+import javax.swing.SwingUtilities;
 /**
  *
  * @author Simon Yates
  */
 public class LoginForm extends javax.swing.JFrame {
-
-  
+    
 
     /**
      * Creates new form LoginForm
@@ -43,43 +42,37 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        idTextField = new javax.swing.JTextField();
-        emailTextField = new javax.swing.JTextField();
-        passwordTextField = new javax.swing.JTextField();
-        Submit = new javax.swing.JButton();
+        idField = new javax.swing.JTextField();
+        emailField = new javax.swing.JTextField();
+        submitButton = new javax.swing.JButton();
+        passwordField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        jLabel1.setText("Password:");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setText("Email:");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        jLabel2.setText("Email:");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel2.setText("ID:");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        jLabel3.setText("Login");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel3.setText("Password:");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        jLabel4.setText("ID:");
-
-        idTextField.addActionListener(new java.awt.event.ActionListener() {
+        idField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idTextFieldActionPerformed(evt);
+                idFieldActionPerformed(evt);
             }
         });
 
-        emailTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailTextFieldActionPerformed(evt);
+        submitButton.setText("Submit");
+        submitButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                submitButtonMouseClicked(evt);
             }
         });
-
-        Submit.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        Submit.setText("Submit");
-        Submit.addActionListener(new java.awt.event.ActionListener() {
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SubmitActionPerformed(evt);
+                submitButtonActionPerformed(evt);
             }
         });
 
@@ -88,121 +81,157 @@ public class LoginForm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(passwordTextField))
+                                .addGap(49, 49, 49)
+                                .addComponent(emailField))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4)
-                        .addGap(32, 32, 32)
-                        .addComponent(idTextField))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(392, 392, 392)
-                        .addComponent(jLabel3)))
-                .addContainerGap(392, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(Submit, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(133, 133, 133))
+                                .addGap(70, 70, 70)
+                                .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)))
+                        .addGap(121, 121, 121))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel3)
-                .addGap(90, 90, 90)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                .addGap(74, 74, 74)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
+                    .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(94, 94, 94)
-                .addComponent(Submit, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(68, Short.MAX_VALUE))
+                    .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
+                .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         // TODO add your handling code here:
-        
-        File inputFile = new File("Accounts.txt");
-     
-     String userIDInput = idTextField.getText();
-     String userNameInput = emailTextField.getText();
-     String passwordInput = passwordTextField.getText();
-     
-     try {
-            Scanner in = new Scanner(new File("USERDATA.txt"));
-            while (in.hasNextLine())
-            {
-              String s = in.nextLine();  
-              String[] sArray = s.split(" : ");
-              
-              System.out.println(sArray[0]); //Just to verify that file is being read
-              System.out.println(sArray[1]);
+    }//GEN-LAST:event_submitButtonActionPerformed
 
-              
-              if (userIDInput == sArray[0] && userNameInput == sArray[1] && passwordInput == sArray[2])
-              {
-                JOptionPane.showMessageDialog(null,
-                    "Login Successful", "Success",
-                    JOptionPane.INFORMATION_MESSAGE);
-              }
-              else
-              {
-                JOptionPane.showMessageDialog(null,
-                    "Invalid Username / Password Combo", "Error",
-                    JOptionPane.ERROR_MESSAGE);
-              }
+    private void submitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitButtonMouseClicked
+        // TODO add your handling code here:
+          String idInput = idField.getText();
+        String emailInput = emailField.getText();
+        String passwordInput = passwordField.getText();
+        File file = new File("file.txt");
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                // operation
             }
-            
-            in.close();
-            
         } catch (FileNotFoundException e) {
-            JOptionPane.showMessageDialog(null,
-                    "User Database Not Found", "Error",
-                    JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } 
+        if (idInput.equals(patient.getID()) && passwordInput.equals(patient.getPassword()) && emailInput.equals(patient.getEmail()))
+         {
+             JOptionPane.showMessageDialog(null,
+                     "Login Successful", "Success",
+                     JOptionPane.INFORMATION_MESSAGE);
+         }else
+         {
+             JOptionPane.showMessageDialog(null,
+                     "Login Fail", "Fail",
+                     JOptionPane.WARNING_MESSAGE);
+         }
+
+    
+
+   
+    
+
+     
+     /*
+        String idInput = idField.getText();
+     String emailInput = emailField.getText();
+     String passwordInput = passwordField.getText
+        
+        Gson gson = new Gson();
+
+        try (Reader reader = new FileReader("Accounts.txt")) {
+            while (reader.hasNextLine()) {
+                    String data = in.nextLine();
+                    System.out.println(data);
+      }
+            // Convert JSON File to Java Object
+            Patient patients = gson.fromJson(reader, Patient.class);
+            try {
+      
+      reader.close();
+    } catch (FileNotFoundException e) {
+      System.out.println("An error occurred.");
+      e.printStackTrace();
+      
+            String s = in.nextLine();
+            String[] sArray = s.split(":");
+            System.out.println(patients);
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-            
-
+         Patient patient = new Patient ();
+         
+         if (idInput.equals(patient.getID()) && passwordInput.equals(patient.getPassword()) && emailInput.equals(patient.getEmail()))
+         {
+             JOptionPane.showMessageDialog(null,
+                     "Login Successful", "Success",
+                     JOptionPane.INFORMATION_MESSAGE);
+         }else
+         {
+             JOptionPane.showMessageDialog(null,
+                     "Login Fail", "Fail",
+                     JOptionPane.WARNING_MESSAGE);
+         }
+*/
+        
         
 
-            
+    
+
+
         
-    }//GEN-LAST:event_SubmitActionPerformed
+     
+     
 
-    private void idTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idTextFieldActionPerformed
+    }//GEN-LAST:event_submitButtonMouseClicked
 
-    private void emailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextFieldActionPerformed
+    private void idFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_emailTextFieldActionPerformed
+    }//GEN-LAST:event_idFieldActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+
         /* Set the Nimbus look and feel */
+        
+
+       
+    
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -234,13 +263,12 @@ public class LoginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Submit;
-    private javax.swing.JTextField emailTextField;
-    private javax.swing.JTextField idTextField;
+    private javax.swing.JTextField emailField;
+    private javax.swing.JTextField idField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField passwordTextField;
+    private javax.swing.JTextField passwordField;
+    private javax.swing.JButton submitButton;
     // End of variables declaration//GEN-END:variables
 }
