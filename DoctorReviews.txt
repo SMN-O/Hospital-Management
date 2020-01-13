@@ -1,2 +1,5 @@
-First Name / Surname / Rating / Description
-Octo, Puss , 4, Calming doctor with multiple years of experiance.
+Doctor / Rating / Description
+D0002 Octo Puss, 5, Has magical fingers and a great eye for precision
+D0001 Egg Man, 2, Cut my arm off
+D0001 Egg Man, 1, Used a spatula as a tool...
+D0001 Egg Man, 3, Strange looking man

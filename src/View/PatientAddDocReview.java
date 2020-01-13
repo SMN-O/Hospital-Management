@@ -6,7 +6,10 @@
 package View;
 
 import Model.Doctor;
+import com.google.gson.Gson;
 import com.sun.org.apache.xml.internal.resolver.readers.DOMCatalogParser;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  *
@@ -114,6 +117,20 @@ public class PatientAddDocReview extends javax.swing.JFrame {
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         // TODO add your handling code here:
+                Gson gson = new Gson();
+
+             try {
+       FileWriter writer = new FileWriter("DoctorReviews.txt", true);
+       writer.write(jComboBox1.getSelectedItem() + ", ");
+       writer.write(RatingField.getText()+ ", ");
+       writer.write(descField.getText()+ "\n");
+       
+
+       writer.close();
+
+      } catch (IOException e) {
+       e.printStackTrace();
+      }
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void RatingFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RatingFieldActionPerformed

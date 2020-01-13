@@ -185,7 +185,6 @@ public class RegisterForm extends javax.swing.JFrame {
         Gson gson = new Gson();
         
             try {
-       //write converted json data to a file named "CountryGSON.json"
        FileWriter writer = new FileWriter("Accounts.txt");
        writer.write(patientId + ", ");
        writer.write(firstNameField.getText()+ ", ");
@@ -200,7 +199,6 @@ public class RegisterForm extends javax.swing.JFrame {
        e.printStackTrace();
       }
 
-      System.out.println();
 
      
 

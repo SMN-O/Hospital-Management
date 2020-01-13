@@ -113,6 +113,9 @@ public class PatientReviewDoc extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        jTable1.removeAll();
+        
         String filePath = "DoctorReviews.txt";
         File file = new File(filePath);
 
