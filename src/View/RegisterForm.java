@@ -182,6 +182,28 @@ public class RegisterForm extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(null, "Account Created" + "\n" + "Your ID" + "\n" + patientId + "\n" + "Your Password" + "\n" + passwordField.getText());
         
+        Gson gson = new Gson();
+        
+            try {
+       //write converted json data to a file named "CountryGSON.json"
+       FileWriter writer = new FileWriter("Accounts.txt");
+       writer.write(patientId + ", ");
+       writer.write(firstNameField.getText()+ ", ");
+       writer.write(surnameField.getText()+ ", ");
+       writer.write(passwordField.getText()+ ", ");
+       writer.write(genderField.getText()+ ", ");
+       writer.write(ageField.getText());
+
+       writer.close();
+
+      } catch (IOException e) {
+       e.printStackTrace();
+      }
+
+      System.out.println();
+
+     
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

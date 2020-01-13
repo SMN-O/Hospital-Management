@@ -151,7 +151,7 @@ public class HomeForm extends javax.swing.JFrame {
 
     private void reviewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reviewButtonActionPerformed
         // TODO add your handling code here:
-         DoctorReview dr = new DoctorReview();
+         PatientReviewDoc dr = new PatientReviewDoc();
                 dr.pack();
                 dr.setVisible(true);
                 
