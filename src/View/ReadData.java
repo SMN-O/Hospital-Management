@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
-import Controller.Patient;
+import Model.Patient;
 /**
  *
  * @author Simon Yates

@@ -5,19 +5,27 @@
  */
 package View;
 import Controller.AccountHandler;
-import Model.Account;
+import Model.Patient;
+import com.google.gson.Gson;
+
 import com.sun.xml.internal.ws.developer.SerializationFeature;
+import java.awt.event.ActionEvent;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import static java.lang.Math.random;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import org.codehaus.jackson.map.ObjectMapper;
 /**
  *
  * @author Simon Yates
  */
 public class RegisterForm extends javax.swing.JFrame {
+    FileWriter fileWriter;
 
     /**
      * Creates new form RegisterForm
@@ -162,26 +170,42 @@ public class RegisterForm extends javax.swing.JFrame {
         // TODO add your handling code here:
          ObjectMapper objectMapper = new ObjectMapper();
 
-    Account patients = new Account();
-
-    patients.setID(AccountHandler.makePatientID);
-    patients.setFirstName(firstNameField.getText());
-    patients.setSurname(surnameField.getText());
-    patients.setPassword(passwordField.getText());
-    patients.setGender(genderField.getText());
-    patients.setAge(ageField.getText());
+    Patient patients = new Patient();
 
 
-    try {
-        List<Account> listOfAccount = new ArrayList<>();
-        listOfAccount.add(patients);
-        objectMapper.writeValue(new File("Accounts.json"), listOfAccount);
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
+    
+    if(evt.getActionCommand()==jButton1.getActionCommand())
+        {
             
+            try
+            {
+                fileWriter  = new FileWriter("Accounts.txt",true);
 
+                    patients.setID(AccountHandler.makePatientID);
+                    patients.setFirstName(firstNameField.getText());
+                    patients.setSurname(surnameField.getText());
+                    patients.setPassword(passwordField.getText());
+                    patients.setGender(genderField.getText());
+                    patients.setAge(Integer.parseInt(ageField.getText()));
+           
 
+                fileWriter.write("{"+ firstNameField.getText() + ",");
+                fileWriter.write("surname:" + surnameField.getText() + ",");
+                fileWriter.write("passwords:" + passwordField.getText() + ",");            
+                fileWriter.write("gender:" + genderField.getText() + ",");
+                fileWriter.write("age:" + ageField.getText() + "}");
+
+                
+                
+                fileWriter.write("\n");
+
+                fileWriter.close();
+                
+                JOptionPane.showMessageDialog(null, "Account Created" + "\n" + "Your ID" + "\n" + AccountHandler.makePatientID + "\n" + "Your Password" + "\n" + passwordField.getText());
+                
+            }catch(IOException e){JOptionPane.showMessageDialog(null, e+"");}
+        
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

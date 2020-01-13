@@ -5,7 +5,7 @@
  */
 package Controller;
 
-import Model.Account;
+import Model.Patient;
 import com.sun.xml.internal.bind.v2.model.core.ID;
 import java.util.UUID;
 
@@ -14,50 +14,48 @@ import java.util.UUID;
  * @author Simon Yates
  */
 public class AccountHandler {
-    public Account NewAccount()
+
+    public static String makePatientID;
+    
+    public int NewAccountId()
     {     
-        for (Account account : Account.users) {
-            //get the user id
-            account.getID();
+        int highestId = 0;
+        for (Patient account : Patient.users) {
             
             //get the last 4 chars, turn to int, then increment by one.
             String retrieveID = account.getID().substring(1);
 
             //got ya new id number.
-            Integer.parseInt(retrieveID);
-            
-        }
+            int id = Integer.parseInt(retrieveID);
+            if(id > highestId){
+                highestId = id;                
+            }
+        }            
         
-        Account.users.size();
-        for(Account account : Account.users) {
-            account.getID();
-            
-         
-        }
-            
+        highestId++;
         
-        return null;
+        return highestId;
     }
     public String makePatientID() {
 		int generateID = (int)(Math.random()*9000)+1000;
-                String createdID = "P"+generateID;
+                String createdID = "P"+NewAccountId();
         return createdID;
     
     }
     public String makeDoctorID() {
 		int generateID = (int)(Math.random()*9000)+1000;
-                String createdID = "D"+generateID;
+                String createdID = "D"+NewAccountId();
         return createdID;
     }
     public String makeSecretaryID() {
 		int generateID = (int)(Math.random()*9000)+1000;
-                String createdID = "S"+generateID;
+                String createdID = "S"+NewAccountId();
         return createdID;
     
     }
     public String makeAdminID() {
 		int generateID = (int)(Math.random()*9000)+1000;
-                String createdID = "A"+generateID;
+                String createdID = "A"+NewAccountId();
         return createdID;
     }
 }

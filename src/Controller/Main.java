@@ -5,7 +5,10 @@
  */
 package Controller;
 
-import Model.Account;
+import Model.Doctor;
+import Model.Patient;
+import Model.Secretary;
+import Model.Admin;
 
 
 /**
@@ -16,18 +19,18 @@ public class Main {
     
 
     public  void main(String[] args) {
-        Account.users.add(new Account("P0001", "David", "Atticborrow", "Cake", "Male", 31));
-        Account.users.add(new Account("P0002", "Oliver", "Twist", "PleaseSir", "Male", 51));
-        Account.users.add(new Account("P0003", "Tommy", "Gunn", "Shooter", "Male", 31));
+        Patient.users.add(new Patient("P0001", "David", "Atticborrow", "Cake", "Male", 31));
+        Patient.users.add(new Patient("P0002", "Oliver", "Twist", "PleaseSir", "Male", 51));
+        Patient.users.add(new Patient("P0003", "Tommy", "Gunn", "Shooter", "Male", 31));
 
-        Account.users.add(new Account("S0001", "Sharon", "Osbourne", "Singer"));
-        Account.users.add(new Account("S0002", "Peter", "Pan", "Tinkerbell"));
+        Secretary.secretaries.add(new Secretary("S0001", "Sharon", "Osbourne", "Singer"));
+        Secretary.secretaries.add(new Secretary("S0002", "Peter", "Pan", "Tinkerbell"));
 
-        Account.users.add(new Account("D0001", "Egg", "Man", "Sonic"));
-        Account.users.add(new Account("D0002", "Octo", "Puss", "Spiderman"));
+        Doctor.doctors.add(new Doctor("D0001", "Egg", "Man", "Sonic"));
+        Doctor.doctors.add(new Doctor("D0002", "Octo", "Puss", "Spiderman"));
 
-        Account.users.add(new Account("A0001", "God", "Man", "Jesus"));
-        Account.users.add(new Account("A0002", "Kate", "Simple", "Simplekate"));
+        Admin.admins.add(new Admin("A0001", "God", "Man", "Jesus"));
+        Admin.admins.add(new Admin("A0002", "Kate", "Simple", "Simplekate"));
 
 
     }

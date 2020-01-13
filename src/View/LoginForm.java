@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
-import Controller.patient;
+import Model.Patient;
 import java.io.FileNotFoundException;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -131,90 +131,6 @@ public class LoginForm extends javax.swing.JFrame {
 
     private void submitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitButtonMouseClicked
         // TODO add your handling code here:
-          String idInput = idField.getText();
-        String emailInput = emailField.getText();
-        String passwordInput = passwordField.getText();
-        File file = new File("file.txt");
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                // operation
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } 
-        if (idInput.equals(patient.getID()) && passwordInput.equals(patient.getPassword()) && emailInput.equals(patient.getEmail()))
-         {
-             JOptionPane.showMessageDialog(null,
-                     "Login Successful", "Success",
-                     JOptionPane.INFORMATION_MESSAGE);
-         }else
-         {
-             JOptionPane.showMessageDialog(null,
-                     "Login Fail", "Fail",
-                     JOptionPane.WARNING_MESSAGE);
-         }
-
-    
-
-   
-    
-
-     
-     /*
-        String idInput = idField.getText();
-     String emailInput = emailField.getText();
-     String passwordInput = passwordField.getText
-        
-        Gson gson = new Gson();
-
-        try (Reader reader = new FileReader("Accounts.txt")) {
-            while (reader.hasNextLine()) {
-                    String data = in.nextLine();
-                    System.out.println(data);
-      }
-            // Convert JSON File to Java Object
-            Patient patients = gson.fromJson(reader, Patient.class);
-            try {
-      
-      reader.close();
-    } catch (FileNotFoundException e) {
-      System.out.println("An error occurred.");
-      e.printStackTrace();
-      
-            String s = in.nextLine();
-            String[] sArray = s.split(":");
-            System.out.println(patients);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-         Patient patient = new Patient ();
-         
-         if (idInput.equals(patient.getID()) && passwordInput.equals(patient.getPassword()) && emailInput.equals(patient.getEmail()))
-         {
-             JOptionPane.showMessageDialog(null,
-                     "Login Successful", "Success",
-                     JOptionPane.INFORMATION_MESSAGE);
-         }else
-         {
-             JOptionPane.showMessageDialog(null,
-                     "Login Fail", "Fail",
-                     JOptionPane.WARNING_MESSAGE);
-         }
-*/
-        
-        
-
-    
-
-
-        
-     
-     
 
     }//GEN-LAST:event_submitButtonMouseClicked
 
