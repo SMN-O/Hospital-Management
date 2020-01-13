@@ -1,6 +1,10 @@
 package View;
 
 
+import Model.Admin;
+import Model.Doctor;
+import Model.Patient;
+import Model.Secretary;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -27,6 +31,20 @@ public class MainMenu extends javax.swing.JFrame {
      */
     public MainMenu() {
         initComponents();
+        
+        Patient.users.add(new Patient("P0001", "David", "Atticborrow", "Cake", "Male", 31));
+        Patient.users.add(new Patient("P0002", "Oliver", "Twist", "PleaseSir", "Male", 51));
+        Patient.users.add(new Patient("P0003", "Tommy", "Gunn", "Shooter", "Male", 31));
+
+        Secretary.secretaries.add(new Secretary("S0001", "Sharon", "Osbourne", "Singer"));
+        Secretary.secretaries.add(new Secretary("S0002", "Peter", "Pan", "Tinkerbell"));
+
+        Doctor.doctors.add(new Doctor("D0001", "Egg", "Man", "Sonic"));
+        Doctor.doctors.add(new Doctor("D0002", "Octo", "Puss", "Spiderman"));
+
+        Admin.admins.add(new Admin("A0001", "God", "Man", "Jesus"));
+        Admin.admins.add(new Admin("A0002", "Kate", "Simple", "Simplekate"));
+
     }
 
     MainMenu(LoginForm aThis, boolean rootPaneCheckingEnabled) {
@@ -118,7 +136,8 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         // TODO add your handling code here
-                Register ra = new Register();
+        RegisterForm register = new RegisterForm();
+        register.setVisible(true);
                 
     }//GEN-LAST:event_registerButtonActionPerformed
 

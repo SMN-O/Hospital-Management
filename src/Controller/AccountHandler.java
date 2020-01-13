@@ -6,8 +6,6 @@
 package Controller;
 
 import Model.Patient;
-import com.sun.xml.internal.bind.v2.model.core.ID;
-import java.util.UUID;
 
 /**
  *
@@ -17,44 +15,47 @@ public class AccountHandler {
 
     public static String makePatientID;
     
-    public int NewAccountId()
+    public String NewAccountId()
     {     
         int highestId = 0;
         for (Patient account : Patient.users) {
             
-            //get the last 4 chars, turn to int, then increment by one.
-            String retrieveID = account.getID().substring(1);
+            try {
 
-            //got ya new id number.
-            int id = Integer.parseInt(retrieveID);
-            if(id > highestId){
-                highestId = id;                
+                //get the last 4 chars, turn to int, then increment by one.
+                String retrieveID = account.getID().substring(1, 5);
+                
+                //got ya new id number.
+                int id = Integer.parseInt(retrieveID);
+                if(id > highestId){
+                    highestId = id;                
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
+
         }            
         
         highestId++;
         
-        return highestId;
+        return String.format("%04d", highestId).substring(0, 4);
     }
+    
     public String makePatientID() {
-		int generateID = (int)(Math.random()*9000)+1000;
                 String createdID = "P"+NewAccountId();
         return createdID;
     
     }
     public String makeDoctorID() {
-		int generateID = (int)(Math.random()*9000)+1000;
                 String createdID = "D"+NewAccountId();
         return createdID;
     }
     public String makeSecretaryID() {
-		int generateID = (int)(Math.random()*9000)+1000;
                 String createdID = "S"+NewAccountId();
         return createdID;
     
     }
     public String makeAdminID() {
-		int generateID = (int)(Math.random()*9000)+1000;
                 String createdID = "A"+NewAccountId();
         return createdID;
     }

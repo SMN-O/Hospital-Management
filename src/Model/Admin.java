@@ -26,5 +26,47 @@ public class Admin {
         this.surname = surname;
         this.password = password;
         }
+
+    public static List<Admin> getAdmins() {
+        return admins;
+    }
+
+    public static void setAdmins(List<Admin> admins) {
+        Admin.admins = admins;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    
     
 }

@@ -32,6 +32,7 @@ public class RegisterForm extends javax.swing.JFrame {
      */
     public RegisterForm() {
         initComponents();
+        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
     }
 
     /**
@@ -168,44 +169,19 @@ public class RegisterForm extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         ObjectMapper objectMapper = new ObjectMapper();
+        Patient patient = new Patient();
+        Patient.getUsers().add(patient);
 
-    Patient patients = new Patient();
-
-
-    
-    if(evt.getActionCommand()==jButton1.getActionCommand())
-        {
-            
-            try
-            {
-                fileWriter  = new FileWriter("Accounts.txt",true);
-
-                    patients.setID(AccountHandler.makePatientID);
-                    patients.setFirstName(firstNameField.getText());
-                    patients.setSurname(surnameField.getText());
-                    patients.setPassword(passwordField.getText());
-                    patients.setGender(genderField.getText());
-                    patients.setAge(Integer.parseInt(ageField.getText()));
-           
-
-                fileWriter.write("{"+ firstNameField.getText() + ",");
-                fileWriter.write("surname:" + surnameField.getText() + ",");
-                fileWriter.write("passwords:" + passwordField.getText() + ",");            
-                fileWriter.write("gender:" + genderField.getText() + ",");
-                fileWriter.write("age:" + ageField.getText() + "}");
-
-                
-                
-                fileWriter.write("\n");
-
-                fileWriter.close();
-                
-                JOptionPane.showMessageDialog(null, "Account Created" + "\n" + "Your ID" + "\n" + AccountHandler.makePatientID + "\n" + "Your Password" + "\n" + passwordField.getText());
-                
-            }catch(IOException e){JOptionPane.showMessageDialog(null, e+"");}
+        String patientId = new AccountHandler().makePatientID();
+        patient.setID(patientId);
+        patient.setFirstName(firstNameField.getText());
+        patient.setSurname(surnameField.getText());
+        patient.setPassword(passwordField.getText());
+        patient.setGender(genderField.getText());
+        patient.setAge(Integer.parseInt(ageField.getText()));
         
-        }
+        JOptionPane.showMessageDialog(null, "Account Created" + "\n" + "Your ID" + "\n" + patientId + "\n" + "Your Password" + "\n" + passwordField.getText());
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
