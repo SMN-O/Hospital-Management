@@ -16,6 +16,8 @@ public class AdminReg extends javax.swing.JFrame {
      */
     public AdminReg() {
         initComponents();
+        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
+
     }
 
     /**

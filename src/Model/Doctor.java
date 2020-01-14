@@ -27,6 +27,11 @@ public class Doctor {
         this.password = password;
         }
 
+    public Doctor() {
+    }
+    
+    
+
     public static List<Doctor> getDoctors() {
         return doctors;
     }

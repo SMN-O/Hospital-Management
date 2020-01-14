@@ -1,6 +1,7 @@
 package View;
 
 
+import Controller.JsonFileReadWrite;
 import Model.Admin;
 import Model.Doctor;
 import Model.Patient;
@@ -45,6 +46,8 @@ public class MainMenu extends javax.swing.JFrame {
         Admin.admins.add(new Admin("A0001", "God", "Man", "Jesus"));
         Admin.admins.add(new Admin("A0002", "Kate", "Simple", "Simplekate"));
 
+        //JsonFileReadWrite.loadAccounts();
+        
     }
 
     MainMenu(LoginForm aThis, boolean rootPaneCheckingEnabled) {

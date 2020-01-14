@@ -31,6 +31,8 @@ public class LoginForm extends javax.swing.JFrame {
      */
     public LoginForm() {
         initComponents();
+        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
+
     }
 
     /**

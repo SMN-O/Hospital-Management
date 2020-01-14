@@ -19,6 +19,12 @@ public class Admin {
     private String firstName;
     private String surname;
     private String password;
+
+    public Admin() {
+    }
+    
+    
+    
     
     public Admin(String ID, String firstName, String surname, String password){
         this.ID = ID;

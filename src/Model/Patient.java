@@ -46,6 +46,8 @@ public class Patient {
         this.password = password;
 
     }
+    
+    
 
     public static List<Patient> getUsers() {
         return users;

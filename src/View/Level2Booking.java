@@ -24,6 +24,8 @@ public class Level2Booking extends javax.swing.JFrame {
     /** Creates new form Bookings */
     public Level2Booking() {
         initComponents();
+        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
+
     }
 
     /** This method is called from within the constructor to

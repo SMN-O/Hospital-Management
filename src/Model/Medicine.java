@@ -6,58 +6,38 @@
 package Model;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
  * @author Simon Yates
  */
 public class Medicine {
+
+    public static ArrayList<Medicine> medicines = new ArrayList<>();
     
-    public static List<Medicine> prescription = new ArrayList<>();
+    String name;
+    int stock;
 
-   
+    public Medicine(String name, int stock) {
+        this.name = name;
+        this.stock = stock;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
     
-    private String dosage;
-    private int quantity;
-    private String medicine;
-
-    public Medicine(String dosage, int quantity, String medicine) {
-        this.dosage = dosage;
-        this.quantity = quantity;
-        this.medicine = medicine;
-    }
-
-    public static List<Medicine> getPrescription() {
-        return prescription;
-    }
-
-    public static void setPrescription(List<Medicine> prescription) {
-        Medicine.prescription = prescription;
-    }
-
-    public String getDosage() {
-        return dosage;
-    }
-
-    public void setDosage(String dosage) {
-        this.dosage = dosage;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getMedicine() {
-        return medicine;
-    }
-
-    public void setMedicine(String medicine) {
-        this.medicine = medicine;
-    }
     
 }

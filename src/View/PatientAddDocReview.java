@@ -23,6 +23,8 @@ public class PatientAddDocReview extends javax.swing.JFrame {
     public PatientAddDocReview() {
         initComponents();
         fillDoctorList();
+        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
+
     }
 
     /**

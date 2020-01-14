@@ -127,7 +127,7 @@ public class AdminHome extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(146, Short.MAX_VALUE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
 
         pack();

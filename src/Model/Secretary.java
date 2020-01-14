@@ -27,6 +27,11 @@ public class Secretary {
         this.password = password;
         }
 
+    public Secretary() {
+    }
+    
+    
+
     public static List<Secretary> getSecretaries() {
         return secretaries;
     }

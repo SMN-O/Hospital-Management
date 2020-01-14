@@ -25,6 +25,8 @@ public class PatientReviewDoc extends javax.swing.JFrame {
      */
     public PatientReviewDoc() {
         initComponents();
+        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
+
     }
 
     /**
