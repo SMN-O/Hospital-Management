@@ -10,11 +10,13 @@ import Model.Doctor;
 import Model.Patient;
 import Model.Secretary;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.GenericArrayType;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 /**
@@ -75,8 +77,8 @@ public class JsonFileReadWrite {
         String firstLine = br.readLine();
         
         Gson gson = new Gson();
-        
-        Patient.setUsers(gson.fromJson(firstLine, new ArrayList<Patient>().getClass()));
+        Type listType = new TypeToken<ArrayList<Patient>>(){}.getType();
+        Patient.setUsers(gson.fromJson(firstLine, listType));
         
         } catch(IOException e) {
             System.out.println(e.getMessage());
@@ -90,7 +92,8 @@ public class JsonFileReadWrite {
         
         Gson gson = new Gson();
         
-        ArrayList<Doctor> doctors = gson.fromJson(firstLine, new ArrayList<Doctor>().getClass());
+        Type listType = new TypeToken<ArrayList<Doctor>>(){}.getType();
+        ArrayList<Doctor> doctors = gson.fromJson(firstLine, listType);
         
         Doctor.setDoctors(doctors);
         
@@ -107,7 +110,8 @@ public class JsonFileReadWrite {
         
         Gson gson = new Gson();
         
-        Admin.setAdmins(gson.fromJson(firstLine, new ArrayList<Admin>().getClass()));
+        Type listType = new TypeToken<ArrayList<Admin>>(){}.getType();
+        Admin.setAdmins(gson.fromJson(firstLine, listType));
         
         } catch(IOException e) {
                        System.out.println(e.getMessage());
@@ -122,7 +126,8 @@ public class JsonFileReadWrite {
         
         Gson gson = new Gson();
         
-        Secretary.setSecretaries(gson.fromJson(firstLine, new ArrayList<Secretary>().getClass()));
+        Type listType = new TypeToken<ArrayList<Secretary>>(){}.getType();
+        Secretary.setSecretaries(gson.fromJson(firstLine, listType));
         
         } catch(IOException e) {
         
