@@ -106,6 +106,7 @@ public class BookApp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
         String filePath = "Appointments.txt";
         File file = new File(filePath);
 
@@ -126,7 +127,7 @@ public class BookApp extends javax.swing.JFrame {
             }
 
         } catch (IOException ex) {
-            Logger.getLogger(ReadData.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BookApp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -137,13 +138,9 @@ public class BookApp extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-/*
-        JFrame_TextFiled frameText = new JFrame_TextFiled();
-        frameText.setVisible(true);
-        frameText.pack();
-        frameText.setLocationRelativeTo(null);
-        frameText.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-     */   
+        AddBooking addbook = new AddBooking();
+        addbook.setVisible(true);
+
                 
     }//GEN-LAST:event_jButton2ActionPerformed
     public static void AddRowToJTable(Object[] dataRow)

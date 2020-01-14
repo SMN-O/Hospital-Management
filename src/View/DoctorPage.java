@@ -16,6 +16,8 @@ public class DoctorPage extends javax.swing.JFrame {
      */
     public DoctorPage() {
         initComponents();
+        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
+
     }
 
     /**
@@ -28,31 +30,41 @@ public class DoctorPage extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        prescribeButton = new javax.swing.JButton();
+        futureAppButton = new javax.swing.JButton();
+        viewAppButton = new javax.swing.JButton();
+        createMedButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel1.setText("Doctors Page");
 
-        jButton1.setText("Prescribe Medicine");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        prescribeButton.setText("Prescribe Medicine");
+        prescribeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                prescribeButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Create Future Appointments");
-
-        jButton3.setText("View Appointments");
-
-        jButton4.setText("Create Medicine");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        futureAppButton.setText("Create Future Appointments");
+        futureAppButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                futureAppButtonActionPerformed(evt);
+            }
+        });
+
+        viewAppButton.setText("View Appointments");
+        viewAppButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewAppButtonActionPerformed(evt);
+            }
+        });
+
+        createMedButton.setText("Create Medicine");
+        createMedButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createMedButtonActionPerformed(evt);
             }
         });
 
@@ -63,10 +75,10 @@ public class DoctorPage extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(futureAppButton, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewAppButton, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(prescribeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createMedButton, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addContainerGap(92, Short.MAX_VALUE))
         );
@@ -76,30 +88,42 @@ public class DoctorPage extends javax.swing.JFrame {
                 .addGap(54, 54, 54)
                 .addComponent(jLabel1)
                 .addGap(90, 90, 90)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(futureAppButton, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(viewAppButton, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(prescribeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(createMedButton, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(84, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void createMedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createMedButtonActionPerformed
         // TODO add your handling code here:
         CreateMedicine medicine = new CreateMedicine();
         medicine.setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_createMedButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void prescribeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prescribeButtonActionPerformed
         // TODO add your handling code here:
         CreatePrescription medicine = new CreatePrescription();
         medicine.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_prescribeButtonActionPerformed
+
+    private void viewAppButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewAppButtonActionPerformed
+        // TODO add your handling code here:
+        BookApp book = new BookApp();
+        book.setVisible(true);
+    }//GEN-LAST:event_viewAppButtonActionPerformed
+
+    private void futureAppButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_futureAppButtonActionPerformed
+        // TODO add your handling code here:
+        AddBooking plusbook = new AddBooking();
+        plusbook.setVisible(true);
+    }//GEN-LAST:event_futureAppButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,10 +161,10 @@ public class DoctorPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton createMedButton;
+    private javax.swing.JButton futureAppButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton prescribeButton;
+    private javax.swing.JButton viewAppButton;
     // End of variables declaration//GEN-END:variables
 }

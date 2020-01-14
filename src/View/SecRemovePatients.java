@@ -109,7 +109,7 @@ public class SecRemovePatients extends javax.swing.JFrame {
             }
 
         } catch (IOException ex) {
-            Logger.getLogger(ReadData.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SecRemovePatients.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -1,2 +1,5 @@
-First Name / Surname / Gender / Age / Appointment Time / Doctor
-Tommy,  Gunn , Male, 55, 13:04, Dr EggMan
+Patient / Appointment Time/ Date / Doctor 
+P0003 Tommy Gunn, 07:04, 01:01:2020, D0001 Egg Man, 
+P0002 Oliver Twist, 13:04, 12:01:2020, D0001 Egg Man, 
+P0003 Tommy Gunn, 17:04, 22:03:2020, D0002 Octo Puss, 
+P0003 Tommy Gunn, 13:04, 22:05:2020, D0001 Egg Man, 
