@@ -5,7 +5,10 @@
  */
 package Controller;
 
+import Model.Admin;
+import Model.Doctor;
 import Model.Patient;
+import Model.Secretary;
 
 /**
  *
@@ -33,9 +36,9 @@ public class AccountHandler {
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
+            
+        }
 
-        }            
-        
         highestId++;
         
         return String.format("%04d", highestId).substring(0, 4);
@@ -46,10 +49,10 @@ public class AccountHandler {
         return createdID;
     
     }
-    public String makeDoctorID() {
+    /*public String makeDoctorID() {
                 String createdID = "D"+NewAccountId();
         return createdID;
-    }
+    }*/
     public String makeSecretaryID() {
                 String createdID = "S"+NewAccountId();
         return createdID;
@@ -60,6 +63,14 @@ public class AccountHandler {
         return createdID;
     }
 }
+
+    
+    
+
+    
+    
+
+
 
     
     

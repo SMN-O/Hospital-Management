@@ -51,7 +51,7 @@ public class AdminHome extends javax.swing.JFrame {
 
         jLabel13 = new javax.swing.JLabel();
         viewDocRatingButton = new javax.swing.JButton();
-        addAccButton = new javax.swing.JButton();
+        addDocButton = new javax.swing.JButton();
         removeAccButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,7 +66,12 @@ public class AdminHome extends javax.swing.JFrame {
             }
         });
 
-        addAccButton.setText("Add Accounts");
+        addDocButton.setText("Add Doctor");
+        addDocButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addDocButtonActionPerformed(evt);
+            }
+        });
 
         removeAccButton.setText("Remove Accounts");
         removeAccButton.addActionListener(new java.awt.event.ActionListener() {
@@ -82,13 +87,13 @@ public class AdminHome extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel13)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(viewDocRatingButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(addAccButton, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addDocButton, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(removeAccButton, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel13))
+                        .addComponent(removeAccButton, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -99,9 +104,9 @@ public class AdminHome extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(viewDocRatingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addAccButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addDocButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(removeAccButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
@@ -118,6 +123,12 @@ public class AdminHome extends javax.swing.JFrame {
         RemoveAcc ra = new RemoveAcc();
         ra.setVisible(true);
     }//GEN-LAST:event_removeAccButtonActionPerformed
+
+    private void addDocButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addDocButtonActionPerformed
+        // TODO add your handling code here:
+        AddAcc aa = new AddAcc();
+        aa.setVisible(true);
+    }//GEN-LAST:event_addDocButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,7 +169,7 @@ public class AdminHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addAccButton;
+    private javax.swing.JButton addDocButton;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JButton removeAccButton;
     private javax.swing.JButton viewDocRatingButton;

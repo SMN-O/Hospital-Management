@@ -5,6 +5,7 @@
  */
 package View;
 import Controller.AccountHandler;
+import Controller.JsonFileReadWrite;
 import Model.Patient;
 import com.google.gson.Gson;
 
@@ -161,23 +162,7 @@ public class RegisterForm extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(null, "Account Created" + "\n" + "Your ID" + "\n" + patientId + "\n" + "Your Password" + "\n" + passwordField.getText());
         
-        Gson gson = new Gson();
-        
-            try {
-       FileWriter writer = new FileWriter("Accounts.txt");
-       writer.write(patientId + ", ");
-       writer.write(firstNameField.getText()+ ", ");
-       writer.write(surnameField.getText()+ ", ");
-       writer.write(passwordField.getText()+ ", ");
-       writer.write(genderField.getText()+ ", ");
-       writer.write(ageField.getText() + "\n");
-
-       writer.close();
-
-      } catch (IOException e) {
-       e.printStackTrace();
-      }
-
+        JsonFileReadWrite.writeAccounts();
 
      
 
