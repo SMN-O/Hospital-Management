@@ -194,9 +194,9 @@ public class AddAcc extends javax.swing.JFrame {
         secretary.setFirstName(secNameField.getText());
         secretary.setSurname(secSurnameField.getText());
         secretary.setPassword(secPasswordField.getText());
-        
+        //creates prompt which will show the ID and password 
         JOptionPane.showMessageDialog(null, "Secretary Account Created" + "\n" + "ID" + "\n" + secretaryID + "\n" + "Password" + "\n" + secPasswordField.getText());
-        
+        //writes all fields 
         JsonFileReadWrite.writeAccounts();
     }//GEN-LAST:event_secSubmitButtonActionPerformed
 
@@ -210,7 +210,8 @@ public class AddAcc extends javax.swing.JFrame {
         doctor.setFirstName(docNameField.getText());
         doctor.setSurname(docSurnameField.getText());
         doctor.setPassword(docPasswordField.getText());
-        
+                //creates prompt which will show the ID and password 
+
         JOptionPane.showMessageDialog(null, "Doctor Account Created" + "\n" + "ID" + "\n" + doctorID + "\n" + "Password" + "\n" + docPasswordField.getText());
         
         JsonFileReadWrite.writeAccounts();

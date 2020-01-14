@@ -127,6 +127,7 @@ public class LoginForm extends javax.swing.JFrame {
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         // TODO add your handling code here:
         
+        //compares if id and fiels are correct and forwards to the designated page depending on the id first letter
         for (Admin user : Admin.admins) {
             if(user.getID().equals(idField.getText()) && user.getPassword().equals(passwordField.getText())) {
                 AdminHome admin = new AdminHome();

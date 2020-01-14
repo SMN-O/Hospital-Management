@@ -15,7 +15,7 @@ import Model.Secretary;
  * @author Simon Yates
  */
 public class AccountHandler {
-
+//makePatientID
     public static String makePatientID;
     
     public static String NewPatientId()
@@ -40,7 +40,7 @@ public class AccountHandler {
         }
         return "P" + String.format("%04d", highestId).substring(0, 4);
     }
-        
+        //Creates for Doctors
     public static String NewDocId()
     {     
         int highestId = 0;
@@ -61,9 +61,9 @@ public class AccountHandler {
             }
             
         }
-
+//increments
         highestId++;
-        
+        //returns the letter D before the integers
         return "D" + String.format("%04d", highestId).substring(0, 4);
     }
     

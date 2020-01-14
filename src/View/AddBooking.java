@@ -162,6 +162,7 @@ public class AddBooking extends javax.swing.JFrame {
         writer.write(doctorIDBox.getSelectedItem() + ", " + "\n");
 
        
+        //creates file and uses true to overwrite
 
        writer.close();
 

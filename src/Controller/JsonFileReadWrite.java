@@ -24,7 +24,7 @@ import java.util.ArrayList;
  * @author Simon Yates
  */
 public class JsonFileReadWrite {
- 
+ //writes using GSon to the targetted files
     public static void writeAccounts(){
         Gson gson = new Gson();
   
@@ -71,6 +71,7 @@ public class JsonFileReadWrite {
     
     public static void loadAccounts()
     {
+        //reads the accounts and loads it to the main menu form
         try{
         BufferedReader br = new BufferedReader(new FileReader("Patients.txt"));
               

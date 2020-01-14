@@ -106,7 +106,7 @@ public class BookApp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        //reads in text file
         String filePath = "Appointments.txt";
         File file = new File(filePath);
 
@@ -117,7 +117,8 @@ public class BookApp extends javax.swing.JFrame {
             String[] columnsName = firstLine.split("/");
             DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
             model.setColumnIdentifiers(columnsName);
-
+//creates the first line as the column titles 
+//using trim and split seperates certain key letters/symbols
             Object[] tableLines = br.lines().toArray();
 
             for (Object tableLine : tableLines) {

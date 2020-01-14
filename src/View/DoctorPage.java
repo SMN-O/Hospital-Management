@@ -121,6 +121,7 @@ public class DoctorPage extends javax.swing.JFrame {
 
     private void futureAppButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_futureAppButtonActionPerformed
         // TODO add your handling code here:
+        //creates new form when button is pressed
         AddBooking plusbook = new AddBooking();
         plusbook.setVisible(true);
     }//GEN-LAST:event_futureAppButtonActionPerformed

@@ -106,6 +106,7 @@ public class CreateMedicine extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        //parses as integer 
         Medicine.medicines.add(new Medicine(medicineName.getText(), Integer.parseInt(medicineStock.getText())));
 
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -142,6 +142,8 @@ public class PatientAddDocReview extends javax.swing.JFrame {
     /**
      *
      */
+    
+    //fill the combo box with the contents from the array 
     public void fillDoctorList(){
         jComboBox1.removeAllItems();
     for (Doctor account : Doctor.doctors) {
