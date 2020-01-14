@@ -152,7 +152,7 @@ public class RegisterForm extends javax.swing.JFrame {
         Patient patient = new Patient();
         Patient.getUsers().add(patient);
 
-        String patientId = new AccountHandler().makePatientID();
+        String patientId = AccountHandler.NewPatientId();
         patient.setID(patientId);
         patient.setFirstName(firstNameField.getText());
         patient.setSurname(surnameField.getText());

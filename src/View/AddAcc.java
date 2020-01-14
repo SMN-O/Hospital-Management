@@ -189,7 +189,7 @@ public class AddAcc extends javax.swing.JFrame {
         Secretary secretary = new Secretary();
         Secretary.getSecretaries().add(secretary);
 
-        String secretaryID = new AccountHandler().makeSecretaryID();
+        String secretaryID = AccountHandler.NewSecId();
         secretary.setID(secretaryID);
         secretary.setFirstName(secNameField.getText());
         secretary.setSurname(secSurnameField.getText());
@@ -205,7 +205,7 @@ public class AddAcc extends javax.swing.JFrame {
         Doctor doctor = new Doctor();
         Doctor.getDoctors().add(doctor);
 
-        String doctorID = new AccountHandler().makeDoctorID();
+        String doctorID = AccountHandler.NewDocId();
         doctor.setID(doctorID);
         doctor.setFirstName(docNameField.getText());
         doctor.setSurname(docSurnameField.getText());

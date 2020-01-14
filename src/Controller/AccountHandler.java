@@ -18,7 +18,7 @@ public class AccountHandler {
 
     public static String makePatientID;
     
-    public String NewAccountId()
+    public static String NewPatientId()
     {     
         int highestId = 0;
         for (Patient account : Patient.users) {
@@ -38,30 +38,88 @@ public class AccountHandler {
             }
             
         }
+        return "P" + String.format("%04d", highestId).substring(0, 4);
+    }
+        
+    public static String NewDocId()
+    {     
+        int highestId = 0;
+        for (Doctor account : Doctor.doctors) {
+            
+            try {
+
+                //get the last 4 chars, turn to int, then increment by one.
+                String retrieveID = account.getID().substring(1, 5);
+                
+                //got ya new id number.
+                int id = Integer.parseInt(retrieveID);
+                if(id > highestId){
+                    highestId = id;                
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+            
+        }
 
         highestId++;
         
-        return String.format("%04d", highestId).substring(0, 4);
+        return "D" + String.format("%04d", highestId).substring(0, 4);
     }
     
-    public String makePatientID() {
-                String createdID = "P"+NewAccountId();
-        return createdID;
+    public static String NewSecId()
+    {     
+        int highestId = 0;
+        for (Secretary account : Secretary.secretaries) {
+            
+            try {
+
+                //get the last 4 chars, turn to int, then increment by one.
+                String retrieveID = account.getID().substring(1, 5);
+                
+                //got ya new id number.
+                int id = Integer.parseInt(retrieveID);
+                if(id > highestId){
+                    highestId = id;                
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+            
+        }
+
+        highestId++;
+        
+        return "S" + String.format("%04d", highestId).substring(0, 4);
+    }
+        
+    public static String NewAdminId()
+    {     
+        int highestId = 0;
+        for (Admin account : Admin.admins) {
+            
+            try {
+
+                //get the last 4 chars, turn to int, then increment by one.
+                String retrieveID = account.getID().substring(1, 5);
+                
+                //got ya new id number.
+                int id = Integer.parseInt(retrieveID);
+                if(id > highestId){
+                    highestId = id;                
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+            
+        }
+
+        highestId++;
+        
+        return "A" + String.format("%04d", highestId).substring(0, 4);
+    }
     
-    }
-    /*public String makeDoctorID() {
-                String createdID = "D"+NewAccountId();
-        return createdID;
-    }*/
-    public String makeSecretaryID() {
-                String createdID = "S"+NewAccountId();
-        return createdID;
-    
-    }
-    public String makeAdminID() {
-                String createdID = "A"+NewAccountId();
-        return createdID;
-    }
+
 }
 
     
