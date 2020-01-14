@@ -5,6 +5,7 @@
  */
 package View;
 
+import Model.Medicine;
 import com.google.gson.Gson;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -20,8 +21,14 @@ public class SecAddStock extends javax.swing.JFrame {
      */
     public SecAddStock() {
         initComponents();
+        fillMedicineList();
     }
-
+   public void fillMedicineList(){
+    medicineBox.removeAllItems();
+    for (Medicine account : Medicine.medicines) {        
+            medicineBox.addItem(account.getName());
+        }
+   }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

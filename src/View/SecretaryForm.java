@@ -40,6 +40,11 @@ public class SecretaryForm extends javax.swing.JFrame {
         jLabel1.setText("Secretary Page");
 
         jButton1.setText("Remove Patients");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Order/Stock Medicine");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -49,6 +54,11 @@ public class SecretaryForm extends javax.swing.JFrame {
         });
 
         jButton3.setText("Create Appointment");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,6 +95,18 @@ public class SecretaryForm extends javax.swing.JFrame {
         SecAddStock addstock = new SecAddStock();
         addstock.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        RemoveAcc ra = new RemoveAcc();
+        ra.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        AddBooking ab = new AddBooking();
+        ab.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -6,6 +6,7 @@
 package View;
 
 import Model.Doctor;
+import Model.Patient;
 import Model.Secretary;
 
 /**
@@ -19,30 +20,20 @@ public class RemoveAcc extends javax.swing.JFrame {
      */
     public RemoveAcc() {
         initComponents();
-        fillDoctorList();
-        fillSecretaryList();
+        fillPatientList();
+        
         this.setDefaultCloseOperation(HIDE_ON_CLOSE);
 
 
+    
+  
     }
-    public void fillDoctorList(){
-        displayDocBox.removeAllItems();
-    for (Doctor account : Doctor.doctors) {
+    public void fillPatientList(){
+        displayPatientBox.removeAllItems();
+    for (Patient account : Patient.users) {
             account.getID();
-            account.getFirstName();
-            account.getSurname();
-            account.getPassword();
-            displayDocBox.addItem(account.getID() + " " + account.getFirstName() + " " + account.getSurname() + account.getPassword());
-        }
-    }
-    public void fillSecretaryList(){
-        displaySecBox.removeAllItems();
-    for (Secretary account : Secretary.secretaries) {
-            account.getID();
-            account.getFirstName();
-            account.getSurname();
-            account.getPassword();
-            displaySecBox.addItem(account.getID() + " " + account.getFirstName() + " " + account.getSurname() + account.getPassword());
+
+            displayPatientBox.addItem(account.getID());
         }
     }
 
@@ -56,37 +47,24 @@ public class RemoveAcc extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        displaySecBox = new javax.swing.JComboBox<>();
-        displayDocBox = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
+        displayPatientBox = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         recmSecButton = new javax.swing.JButton();
-        remDocButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel2.setText("Remove Acounts");
 
-        displaySecBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        displaySecBox.addActionListener(new java.awt.event.ActionListener() {
+        displayPatientBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        displayPatientBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                displaySecBoxActionPerformed(evt);
+                displayPatientBoxActionPerformed(evt);
             }
         });
-
-        displayDocBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        displayDocBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                displayDocBoxActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel1.setText("Remove Doctor");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel3.setText("Remove Secretary");
+        jLabel3.setText("Remove Patient");
 
         recmSecButton.setText("Remove Secretary");
         recmSecButton.addActionListener(new java.awt.event.ActionListener() {
@@ -95,30 +73,21 @@ public class RemoveAcc extends javax.swing.JFrame {
             }
         });
 
-        remDocButton.setText("Remove Doctor");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(displayDocBox, 0, 319, Short.MAX_VALUE)
-                    .addComponent(displaySecBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(displayPatientBox, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(recmSecButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(remDocButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(recmSecButton, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(191, 191, 191)
                         .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel3)))
@@ -134,32 +103,35 @@ public class RemoveAcc extends javax.swing.JFrame {
                 .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(recmSecButton, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
-                    .addComponent(displaySecBox))
-                .addGap(77, 77, 77)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(remDocButton, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
-                    .addComponent(displayDocBox))
-                .addContainerGap(165, Short.MAX_VALUE))
+                    .addComponent(displayPatientBox))
+                .addContainerGap(366, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void displaySecBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displaySecBoxActionPerformed
+    private void displayPatientBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayPatientBoxActionPerformed
         // TODO add your handling code here:
 
 
         
-    }//GEN-LAST:event_displaySecBoxActionPerformed
-
-    private void displayDocBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayDocBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_displayDocBoxActionPerformed
+    }//GEN-LAST:event_displayPatientBoxActionPerformed
 
     private void recmSecButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recmSecButtonActionPerformed
         // TODO add your handling code here:
+        Patient patientToKill = null;
+        
+        for(Patient account : Patient.users) {
+            if(account.getID().equals(displayPatientBox.getSelectedItem())){
+                patientToKill = account;
+                break;
+            }
+        }
+        
+        Patient.getUsers().remove(patientToKill);
+        
+    
+
     }//GEN-LAST:event_recmSecButtonActionPerformed
 
     /**
@@ -199,12 +171,9 @@ public class RemoveAcc extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> displayDocBox;
-    private javax.swing.JComboBox<String> displaySecBox;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox<String> displayPatientBox;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JButton recmSecButton;
-    private javax.swing.JButton remDocButton;
     // End of variables declaration//GEN-END:variables
 }
