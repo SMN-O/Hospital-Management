@@ -39,7 +39,6 @@ public class Patient {
     
 
     public Patient(String d0003, String octo, String puss, String spiderman) {
-        //To change body of generated methods, choose Tools | Templates.
         this.ID = ID;
         this.firstName = firstName;
         this.surname = surname;
